@@ -36,3 +36,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+
+group :development do
+  gem "better_errors"
+end
+
+gem "binding_of_caller"
