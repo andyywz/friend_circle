@@ -13,5 +13,5 @@ class User < ActiveRecord::Base
   has_many :owned_circles, class_name: "Circle", foreign_key: "user_id"
   #tells rails that participating_circles really refers to :circle
   has_many :participating_circles, through: :circle_memberships, source: :circle
-
+  has_many :posts
 end

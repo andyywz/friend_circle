@@ -1,0 +1,16 @@
+<h2>Post <%= @post.title.capitalize %></h2>
+
+<%= @post.inspect %><br><br>
+<label><strong><em>Body:</em></strong><br>
+  <%= @post.body %>
+</label><br><br>
+
+<label><strong><em>Links:</em></strong><br>
+<ul>
+  <% @post.links.each do |link| %>
+    <li><a href="<%= link.url %>"><%= link.url %></a></li>
+  <% end %>
+</ul>
+
+<br>
+<%= button_to "Logout", session_url ,:method => "delete" %>
