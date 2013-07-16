@@ -22,10 +22,10 @@ class ApplicationController < ActionController::Base
     session[:token] = nil
   end
 
-  def login
-    @user.session_token = generate_session_token
-    @user.save!
-    session[:token] = @user.session_token
+  def login(user)
+    user.session_token = generate_session_token
+    user.save!
+    session[:token] = user.session_token
   end
 
   def logged_in?
