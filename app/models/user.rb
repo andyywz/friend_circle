@@ -1,7 +1,8 @@
-require 'bcrypt'
 
 class User < ActiveRecord::Base
-  include BCrypt
+  #BCrypt requires the column name to be password_digest, but is
+  #reffered to as password
+  has_secure_password
 
   attr_accessible :password, :password_confirmation, :username, :session_token
 
@@ -9,13 +10,5 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates_confirmation_of :password
 
-  # def password
-  #   @password ||= Password.new(password)
-  # end
-  #
-  # def password=(new_password)
-  #   @password = Password.create(new_password)
-  #   self.password = @password
-  # end
 
 end

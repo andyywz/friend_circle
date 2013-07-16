@@ -7,14 +7,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.password = params[:user][:password]
     if @user.save
       login
-      redirect_to new_user_url
+      redirect_to @user, notice: "Thank you for signing up!"
     else
       flash[:notices] = "Invalid username/password."
       redirect_to new_user_url
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    render :show
+  end
 end
