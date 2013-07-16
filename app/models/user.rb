@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates_confirmation_of :password
 
+  has_many :circle_memberships
   has_many :owned_circles, class_name: "Circle", foreign_key: "user_id"
-  has_many :participating_circles, through: :circle_memberships, class_name: "Circle", foreign_key: "user_id"
+  #tells rails that participating_circles really refers to :circle
+  has_many :participating_circles, through: :circle_memberships, source: :circle
 
 end

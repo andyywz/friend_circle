@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def authorize_user!
     user = User.find(params[:id])
     if current_user != user
-      flash[:notices] = "You must be logged in to do this"
+      flash[:notices] = "Unathorized action"
       redirect_to new_session_url
     end
   end

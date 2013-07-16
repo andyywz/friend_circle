@@ -1,0 +1,5 @@
+<h1>Circle <%= @circle.name %></h1>
+<h4>Created by: <%=@circle.user.username%></h4>
+<%= @circle.inspect %>
+
+<%= button_to "Logout", session_url ,:method => "delete" %>
